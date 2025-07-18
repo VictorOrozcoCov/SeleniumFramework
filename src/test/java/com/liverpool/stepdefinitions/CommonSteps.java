@@ -5,12 +5,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.liverpool.utils.Common;
 import com.liverpool.utils.MyWebDriver;
 
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+
 
 public class CommonSteps {
 
 	Common base; 
+	
+	public CommonSteps() {}
 	
 	public CommonSteps(Common base) {
 		this.base = base;
@@ -20,7 +23,7 @@ public class CommonSteps {
 	public void i_start_my_browser() throws Throwable {
 		base.myBrowser = MyWebDriver.initializeWebDriver();
 		base.isActive = true;
-		base.wait = new WebDriverWait(MyWebDriver.getCurrentDriver(), 15);
+		base.wait = new WebDriverWait(MyWebDriver.getCurrentDriver(), java.time.Duration.ofSeconds(15));
 	}
 	
 	@After

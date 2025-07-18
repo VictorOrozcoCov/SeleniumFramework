@@ -1,16 +1,13 @@
 package com.liverpool.utils;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.WebDriverWait;;
 
 public class MyWebDriver {
 
@@ -21,8 +18,12 @@ public class MyWebDriver {
 	}
 	
 	public static WebDriver initializeWebDriver() {
-		System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver95.exe");
-		WebDriver driver = new ChromeDriver();
+		
+		ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"); // cambia esta ruta según tu SO
+
+        WebDriver driver = new ChromeDriver(options);
+		//System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver95.exe");
 		driver.manage().window().maximize();
 		return driver;
 	}
@@ -77,4 +78,5 @@ public class MyWebDriver {
 			ex.getStackTrace();
 		}
 	}
+
 }
